@@ -29,5 +29,10 @@ function createGridCells() {
     }  
 }
 
+function removeGridCells() {
+    while (sketchArea.firstChild) {
+        sketchArea.removeChild(sketchArea.firstChild);
+    }
+}
 
-createGridCells();
+createGridCells(16);
