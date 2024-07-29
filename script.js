@@ -13,7 +13,7 @@ sketchArea.style.width = sketchArea.style.height = `${GRIDSIDE}px`;
 function setBackgroundColor() {
     this.style.backgroundColor = "black";
 }
-function createGridCells() {
+function createGridCells(squaresPerSide) {
     const numberOfSquares = (squaresPerSide * squaresPerSide);
     const widthOrHeight = `${(GRIDSIDE / squaresPerSide) - 2}px`;
 
@@ -35,4 +35,10 @@ function removeGridCells() {
     }
 }
 
+slider.oninput = function() {
+    let txt = `${this.value} x ${this.value} (Resolution)`;
+    sliderValue.innerHTML = txt;
+    removeGridCells();
+    createGridCells(this.value);
+}
 createGridCells(16);
